@@ -1,6 +1,7 @@
 #include "Banks/SetAutoBank.h"
 #include "Keys.h"
 #include "SpriteManager.h"
+#include "ZGBMain.h"
 
 //Las animaciones deben de ser definidas con array de Unsingned integer
 const UINT8 anim_idle[] = {1, 0}; //The first number indicates the number of frames
@@ -15,6 +16,18 @@ void START() {
 }
 
 void UPDATE() {
+
+	UINT8 i;
+	Sprite* spr;
+
+//Manejando la collision con mi enemigo
+	SPRITEMANAGER_ITERATE(i, spr) {
+		if(spr->type == SpriteEnemy) {
+			if(CheckCollision(THIS, spr)) {
+				SetState(StateGame);
+			}
+		}
+	}
 
 	if(KEY_PRESSED(J_UP)) {
 

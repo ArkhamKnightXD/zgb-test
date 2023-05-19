@@ -12,8 +12,12 @@ IMPORT_MAP(map);
 UINT8 collision_tiles[] = {1, 0};
 
 
+//Todo sprite que debe de renderizarse lo defino aqui
 void START() {
 	scroll_target = SpriteManagerAdd(SpritePlayer, 50, 50);
+
+//Aqui agrego el sprite de mi enemigo y lo inicializo en la posicion (70, 50)
+	SpriteManagerAdd(SpriteEnemy, 100, 50);
 
 	//Metodo encargado de hacer scroll, si queremos que haya collision debemos de pasarle el array collision tiles como 2do parametro y reemplazar el 0
 	InitScroll(BANK(map), &map, collision_tiles, 0);
