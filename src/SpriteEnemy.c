@@ -8,6 +8,7 @@ typedef struct {
 void START() {
 
     CUSTOM_DATA* data = (CUSTOM_DATA*)THIS->custom_data;
+	//Aqui indico el movimiento en y que tendran mis enemigos, tengo que ver como logro manejar el movimiento en x tambien
 	data->vy = 1;
 }
 

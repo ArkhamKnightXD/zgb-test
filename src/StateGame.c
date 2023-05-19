@@ -14,7 +14,7 @@ UINT8 collision_tiles[] = {1, 0};
 
 //Todo sprite que debe de renderizarse lo defino aqui
 void START() {
-	scroll_target = SpriteManagerAdd(SpritePlayer, 50, 50);
+	scroll_target = SpriteManagerAdd(SpritePlayer, 10, 50);
 
 //Aqui agrego el sprite de mi enemigo y lo inicializo en la posicion (70, 50)
 	SpriteManagerAdd(SpriteEnemy, 100, 50);
