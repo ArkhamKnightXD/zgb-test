@@ -16,7 +16,7 @@ UINT8 collision_tiles[] = {1, 0};
 void START() {
 	scroll_target = SpriteManagerAdd(SpritePlayer, 10, 50);
 
-//Aqui agrego el sprite de mi enemigo y lo inicializo en la posicion (70, 50)
+//Aqui agrego el sprite de mi enemigo y lo inicializo en la posicion (70, 50), puedo agregar a los enemigos por codigo o por mi tilemap.
 	SpriteManagerAdd(SpriteEnemy, 100, 50);
 
 	//Metodo encargado de hacer scroll, si queremos que haya collision debemos de pasarle el array collision tiles como 2do parametro y reemplazar el 0

@@ -22,7 +22,7 @@ void PlayerMovement(){
 		//Cuando ya agregamos collision debemos reemplazar esta linea por translateSprite
 		//THIS->y--;
 		//El primer parametro es This el segundo el valor en que aumentara X y el 3ero el valor que aumentara y
-		TranslateSprite(THIS, 0, -1);
+		TranslateSprite(THIS, 0, -1 << delta_time);
 
 //Esta funcion se encarga de manejar las animaciones, le debo de enviar This (se refiere a 
 //la instancia de spritePlayer), luego indico las animaciones y al final a la cantidad de fps que se ejecutaran 
@@ -30,18 +30,25 @@ void PlayerMovement(){
 		SetSpriteAnim(THIS, walking_animation, 15);
 	} 
 	if(KEY_PRESSED(J_DOWN)) {
-		TranslateSprite(THIS, 0, 1);
+
+		//If you add too many enemies on your map you might notice a big slowdown that at some points can even make the game unplayable.
+		//This can be improved a little bit using the var delta_time that:
+		//Will be 0 when the frame rate is ~60fps Will be 1 otherwise
+
+		//You can use this var to multiply the current amount of movement of your sprites (x << 0 is the same as multiplying by 1
+		// and x << 1 is the same as multiplying by 2). This is how your update method should look like on your SpritePlayer.c
+		TranslateSprite(THIS, 0, 1 << delta_time);
 
 		SetSpriteAnim(THIS, walking_animation, 15);
 	}
 	if(KEY_PRESSED(J_LEFT)) {
-		TranslateSprite(THIS, -1, 0);
+		TranslateSprite(THIS, -1 << delta_time, 0);
 
 		SetSpriteAnim(THIS, walking_animation, 15);
 
 	}
 	if(KEY_PRESSED(J_RIGHT)) {
-		TranslateSprite(THIS, 1, 0);
+		TranslateSprite(THIS, 1 << delta_time, 0);
 
 		SetSpriteAnim(THIS, walking_animation, 15);
 	}
