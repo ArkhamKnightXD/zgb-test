@@ -76,6 +76,7 @@ void UPDATE() {
 
 	PlayerMovement();
 
+	//Se recomienda llamar este codigo al final del update
 	CheckCollisionWithEnemy();
 }
 
