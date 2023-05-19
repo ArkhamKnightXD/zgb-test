@@ -12,5 +12,8 @@
         "*.db": true,
         ".gitignore": true,
         ".vs": true
+    },
+    "files.associations": {
+        "version.h": "c"
     }
 }
