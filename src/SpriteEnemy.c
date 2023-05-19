@@ -14,7 +14,6 @@ void START() {
 
 void UPDATE() {
 
-//Manejando las colision con el player
     CUSTOM_DATA* data = (CUSTOM_DATA*)THIS->custom_data;
 //TranslateSprite will return the index of the tile when a collision happens or 0 otherwise. 
 //In this case if there is a collision with the background the velocity of the sprite is negated making it changing its direction
