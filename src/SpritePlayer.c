@@ -92,7 +92,7 @@ void CheckCollisionWithEnemy(){
 
 				life--;
 
-				UpdateHudLife();
+				//UpdateHudLife();
 //El juego solo se reiniciara cuando la vida del player llega a 0
 				if (!life)
 					SetState(StateGame);

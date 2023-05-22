@@ -18,7 +18,7 @@ UINT8 collision_tiles[] = {1, 0};
 //Todo sprite que debe de renderizarse lo defino aqui
 void START() {
 
-//	INIT_HUD(hud)
+	//INIT_HUD(hud)
 
 	scroll_target = SpriteManagerAdd(SpritePlayer, 10, 50);
 
