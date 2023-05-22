@@ -65,18 +65,17 @@ void PlayerMovement(){
 void CheckCollisionWithEnemy(){
 	
 	UINT8 index;
-	Sprite* actualSprite;
+	Sprite* collisionSprite;
 
 //SPRITEMANAGER_ITERATE is a macro that iterates through all the active sprites, if the sprite is of type SPRITE_ENEMY then we use the function 
 //CheckCollision to check if we are colliding with it (do it in this order). If that happens then SetState is called unloading 
 //the current state and loading the state passed as paramenter (even if it is the current one, like in this case)
 
-	SPRITEMANAGER_ITERATE(index, actualSprite) {
-		if(actualSprite->type == SpriteEnemy) {
+	SPRITEMANAGER_ITERATE(index, collisionSprite) {
+		if(collisionSprite->type == SpriteEnemy) {
 			//En resumen cuando el sprite del player colisiona con el del enemy, resetea el juego
-			if(CheckCollision(THIS, actualSprite)) {
+			if(CheckCollision(THIS, collisionSprite)) 
 				SetState(StateGame);
-			}
 		}
 	}
 }
