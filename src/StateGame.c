@@ -6,6 +6,9 @@
 
 IMPORT_MAP(map);
 
+//Esto y init_hud quedara comentado hasta que logre hacer funcionar el hud
+//IMPORT_MAP(hud);
+
 //Collisionable tiles are declared as an array of UINT8 ended with 0. 
 //If you open the file tiles.gbr you will see that we only have two tiles (the first one is empty and we don't want that to be collidable).
 // Declare the next array on StateGame.c
@@ -14,6 +17,9 @@ UINT8 collision_tiles[] = {1, 0};
 
 //Todo sprite que debe de renderizarse lo defino aqui
 void START() {
+
+//	INIT_HUD(hud)
+
 	scroll_target = SpriteManagerAdd(SpritePlayer, 10, 50);
 
 	//SpriteManagerAdd(SpriteEnemy2, 10, 10);

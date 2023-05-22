@@ -2,6 +2,7 @@
 #include "Keys.h"
 #include "SpriteManager.h"
 #include "ZGBMain.h"
+#include "Scroll.h"
 
 //Las animaciones deben de ser definidas con array de Unsingned integer
 const UINT8 idle_animation[] = {1, 0}; //The first number indicates the number of frames
@@ -12,7 +13,11 @@ const UINT8 walking_animation[] = {2, 1, 2};
 
 //El collider de nuestro player se encuentra en el archivo player.gbr.meta, ahi podemos cambiar la posicion en X y Y del collider y tambien su width y height
 
+UINT8 life;
+
 void START() {
+
+	life = 3;
 }
 
 void PlayerMovement(){
@@ -60,6 +65,12 @@ void PlayerMovement(){
 
 }
 
+void UpdateHudLife() {
+
+	for (UINT8 i = 0; i < 3; ++i)
+		UPDATE_HUD_TILE(16 + i, 0, i < life ? 1 : 2);
+}
+
 //Manejando la collision con mi enemigo, me parece que aqui busco todos los sprite y voy comparando 
 //a ver si el sprite del player collisiono con el sprite del enemigo
 void CheckCollisionWithEnemy(){
@@ -74,11 +85,22 @@ void CheckCollisionWithEnemy(){
 	SPRITEMANAGER_ITERATE(index, collisionSprite) {
 		if(collisionSprite->type == SpriteEnemy) {
 			//En resumen cuando el sprite del player colisiona con el del enemy, resetea el juego
-			if(CheckCollision(THIS, collisionSprite)) 
-				SetState(StateGame);
+			if(CheckCollision(THIS, collisionSprite)){
+
+				//Este metodo se encarga de eliminar de pantalla el sprite con el index correspondiente
+				SpriteManagerRemove(index);
+
+				life--;
+
+				UpdateHudLife();
+//El juego solo se reiniciara cuando la vida del player llega a 0
+				if (!life)
+					SetState(StateGame);
+			} 
 		}
 	}
 }
+
 
 void UPDATE() {
 
