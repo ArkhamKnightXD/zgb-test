@@ -1,6 +1,9 @@
 #ifndef ZGBMAIN_H
 #define ZGBMAIN_H
 
+//Here I defined all my states. The states works like screens in libgdx
+//I have to create a file with the same name. And in that file I have to code the behaviour of the state ()
+
 #define STATES \
 _STATE(StateGame)\
 STATE_DEF_END

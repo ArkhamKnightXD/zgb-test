@@ -1,9 +1,9 @@
 #include "Banks/SetAutoBank.h"
-
 #include "ZGBMain.h"
 #include "Scroll.h"
 #include "SpriteManager.h"
 
+//This is the function to use to import a gbm (gameboy map file) file 
 IMPORT_MAP(map);
 
 //Esto y init_hud quedara comentado hasta que logre hacer funcionar el hud
